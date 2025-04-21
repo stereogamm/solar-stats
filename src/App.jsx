@@ -1,11 +1,13 @@
-import './App.css'
+import './App.css';
+import Header from './Components/Layaut/Header';
+import "./App.css"
 
 function App() {
 
   return (
-    <>
-     <h1>Starter project</h1>
-    </>
+    <div className="main">
+      <Header />
+    </div>
   )
 }
 
