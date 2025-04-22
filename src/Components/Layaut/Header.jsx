@@ -1,15 +1,12 @@
 import styles from "./header.module.css";
+import Navigation from "./Navigation";
 
 function Header() {
     return(
         <>
             <header className={styles.header}>
                 <h1>dataverse</h1>
-                <div className={styles["nav-buttons"]}>
-                    <button>cart</button>
-                    <button>statistic</button>
-                </div>
-                
+                <Navigation />
             </header>
                
         </>
