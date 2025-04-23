@@ -1,0 +1,22 @@
+.list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .list h3 {
+    margin: 0 0 0.25rem 0;
+    color:rgb(255, 89, 0);
+    font-size: 2rem;
+  }
+  
+  .description {
+    font-weight: 300;
+  }
+  
+  .numbers {
+    margin-top: 0.25rem;
+    font-size: 1.3rem;
+  }
