@@ -1,46 +1,58 @@
+import Card from "../UI/Card";
 import styles from "./planetList.module.css";
-
-const DUMMY_PLANETS = [
-    {
-      id: "p1",
-      name: "Mercury",
-      description: "The smallest planet in the Solar System and closest to the Sun.",
-      distanceFromSun: "57.9 million km",
-    },
-    {
-      id: "p2",
-      name: "Venus",
-      description: "A hot, rocky planet with a thick atmosphere and extreme temperatures.",
-      distanceFromSun: "108.2 million km",
-    },
-    {
-      id: "p3",
-      name: "Earth",
-      description: "Our home planet, the only one known to support life.",
-      distanceFromSun: "149.6 million km",
-    },
-    {
-      id: "p4",
-      name: "Mars",
-      description: "Known as the Red Planet due to its reddish appearance from iron oxide.",
-      distanceFromSun: "227.9 million km",
-    },
-  ];
-  
+import Item from "../Items/Item/Item";
+import Description from "./Description";
+import { useEffect, useState } from "react";
 
 function PlanetList() {
+  const [planets, setPlanets] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false)
 
-const planetList = DUMMY_PLANETS.map((item, id) => {
-    return <li>{item.name}</li>
-})
+  async function getAllPlanets() {
+    try {
+      setLoading(true)
+      const res = await fetch(
+        "https://api.le-systeme-solaire.net/rest/bodies?filter[]=isPlanet,eq,true"
+      );
+      if (!res.ok) {
+        throw new Error("Failed to get planets");
+      }
+      const data = await res.json();
 
-    return(
-        <section className={styles.planets}>
-            <ul>
-                {planetList}
-            </ul>
-        </section>
-    )
+      setPlanets(data.bodies);
+
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    getAllPlanets();
+  }, []);
+
+  const planetList = planets.map((item) => {
+    return (
+      <Item
+        name={item.englishName}
+        description={item.discoveredBy || "an unknown astronomer"}
+        bodyType={item.bodyType}
+        key={item.id}
+      />
+    );
+  });
+
+  return (
+    <section className={styles.planets}>
+      <Card>
+        <Description />
+        <ul>{planetList}</ul>
+      </Card>
+    </section>
+  );
 }
 
 export default PlanetList;
+

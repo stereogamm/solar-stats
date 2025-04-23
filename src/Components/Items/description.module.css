@@ -1,38 +1,22 @@
 .text {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
-    height: 100vh;
-    max-width: 45rem;
-    width: 90%;
-    margin: auto;
-    margin-top: 35rem;
-    opacity: 0;
-    transform: translateX(50px);
-    animation: move 2s ease-out 0.5s 1 forwards;
-  }
-
-  @keyframes move{
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10rem;
+  } 
   
 h2 {
-    margin-top: 0;
     color:rgb(255, 89, 0);
     transform: scaleY(1.4);
     font-size: 1.7rem;
     font-weight: 100;
     letter-spacing: 0.8rem;
-    margin: 0;
+    margin: 15rem;
   }
 
 .paragraph {
     font-weight: 100;
-    font-size: 1.4rem;
-    transform: scaleY(1.4);
+    font-size: 1.5rem;
 }
   
