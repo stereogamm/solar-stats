@@ -1,7 +1,7 @@
 import styles from "./card.module.css";
 
-function Card(props) {
-  return <div className={styles.card}>{props.children}</div>;
+function Card({children}) {
+  return <div className={styles.card}>{children}</div>;
 }
 
 export default Card;

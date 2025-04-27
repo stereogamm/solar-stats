@@ -5,25 +5,25 @@ function Backdrop({ onHideList }) {
   return <div onClick={onHideList} className={styles.backdrop}></div>;
 }
 
-function ModalWindow(props) {
+function ModalWindow({ children }) {
   return (
     <div className={styles.modal}>
-      <div className={styles.content}>{props.children}</div>
+      <div className={styles.content}>{children}</div>
     </div>
   );
 }
 
 const portalElement = document.getElementById("overlays");
 
-function Modal(props) {
+function Modal({ children, onHideList }) {
   return (
     <>
       {ReactDOM.createPortal(
-        <Backdrop onHideList={props.onHideList} />,
+        <Backdrop onHideList={onHideList} />,
         portalElement
       )}
       {ReactDOM.createPortal(
-        <ModalWindow>{props.children}</ModalWindow>,
+        <ModalWindow>{children}</ModalWindow>,
         portalElement
       )}
     </>
