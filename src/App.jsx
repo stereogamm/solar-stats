@@ -5,6 +5,7 @@ import Cart from "./Components/Cart/Cart";
 import Modal from "../src/Components/UI/Modal";
 import CartContextProvider from "./Components/Store/CartContextProvider";
 
+
 import "./App.css";
 
 function App() {

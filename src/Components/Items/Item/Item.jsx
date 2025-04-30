@@ -9,7 +9,7 @@ function Item({ name, description, bodyType, id }) {
         <h3>{name}</h3>
         <div className={styles.description}>{`Discovered by ${description}`}</div>
         <div className={styles.numbers}>{bodyType}</div>
-        <button className={styles["item-button"]}>
+        <button onClick={()=>console.log('rrr')} className={styles["item-button"]}>
           <svg
             width="31px"
             height="31px"
