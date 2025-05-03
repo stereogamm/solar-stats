@@ -21,7 +21,7 @@ function PlanetList() {
       const data = await res.json();
 
       setPlanets(data.bodies);
-
+  
     } catch (error) {
       setError(error.message);
     } finally {
@@ -40,6 +40,7 @@ function PlanetList() {
         description={item.discoveredBy || "an unknown astronomer"}
         bodyType={item.bodyType}
         key={item.id}
+        id={item.id}
       />
     );
   });

@@ -5,6 +5,7 @@ import CartContext from "../Store/cart-context";
 function Navigation({ onShownList }) {
   const context = useContext(CartContext); 
   const count = context.items.length;
+  
 
   return (
     <div className={styles["nav-buttons"]}>

@@ -11,9 +11,11 @@ const cartContext = useContext(CartContext);
    cartContext.addItem({
     id: id,
     name: name,
-    amount: 1,
+    amount: 0,
    })
   }
+ 
+
  
   return (
     <li className={styles.list} key={id}>
