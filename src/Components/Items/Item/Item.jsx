@@ -1,7 +1,21 @@
+import { useContext } from "react"
 import styles from "./item.module.css";
+import CartContext from "../../Store/cart-context";
 
 
 function Item({ name, description, bodyType, id }) {
+
+const cartContext = useContext(CartContext);
+
+  function addToCart() {
+   cartContext.addItem({
+    id: id,
+    name: name,
+    amount: 0,
+   })
+  }
+ 
+
  
   return (
     <li className={styles.list} key={id}>
@@ -9,7 +23,7 @@ function Item({ name, description, bodyType, id }) {
         <h3>{name}</h3>
         <div className={styles.description}>{`Discovered by ${description}`}</div>
         <div className={styles.numbers}>{bodyType}</div>
-        <button className={styles["item-button"]}>
+        <button onClick={addToCart} className={styles["item-button"]}>
           <svg
             width="31px"
             height="31px"
